@@ -6,6 +6,7 @@ This is my meteor bootstrap structure. Built it for me, but you can use it if yo
 
 #### Starting `mrt` packages
 
-- [iron-router](http://beta.atmospherejs.com/package/iron-router)
-- [collection2](http://beta.atmospherejs.com/package/collection2)
+- [iron-router](http://atmospherejs.com/package/iron-router)
+- [collection2](http://atmospherejs.com/package/collection2)
+- [scss](http://atmospherejs.com/package/scss)
 
