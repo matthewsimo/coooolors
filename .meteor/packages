@@ -4,10 +4,14 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
 insecure
 iron:router
 aldeed:collection2
 fourseven:scss
 alethes:lodash
 
+accounts-base
+accounts-ui
+accounts-password
+msavin:mongol
+keypress:keypress
