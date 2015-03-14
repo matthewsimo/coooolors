@@ -15,3 +15,4 @@ accounts-ui
 accounts-password
 msavin:mongol
 keypress:keypress
+momentjs:moment

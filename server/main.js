@@ -14,6 +14,14 @@ Meteor.publish("userData", function () {
 	);
 });
 
+Meteor.publish("recentBoards", function() {
+	return Boards.find();
+});
+
+Meteor.publish("boardColors", function( boardID ) {
+	return Colors.find({ board: boardID });
+});
+
 
 
 Meteor.methods({
@@ -30,6 +38,30 @@ Meteor.methods({
 		} else {
 			throw new Meteor.Error('invalid-color-pref', "That is an invalid Color Code Preference.");
 		}
+
+	},
+	createBoard: function( boardObj ) {
+
+		if( !Meteor.userId() ) {
+			throw new Meteor.Error('must-be-logged-in', "Log in first to create boards.");
+		}
+
+		// TODO: Validate boardObj
+
+		return Boards.insert( boardObj );
+		
+	},
+	createColor: function( colorObj ) {
+
+		if( !Meteor.userId() ) {
+			throw new Meteor.Error('must-be-logged-in', "Log in first to create boards.");
+		}
+
+		// TODO: Validate User as editor/creator of board
+
+		// TODO: Validate colorObj
+
+		return Colors.insert( colorObj );
 
 	}
 });

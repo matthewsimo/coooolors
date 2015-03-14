@@ -1,0 +1,18 @@
+<template name="singleBoard">
+
+
+<h2>Single Board view</h2>
+
+board: {{ board._id }} 
+
+<button data-action="addColor">Add a color</button>
+
+<ul>
+	{{#each colors}}
+	<li class="color color-{{_id}}">{{color}} - {{msDateFromNow date=created }} by {{creator}} for {{ board }}<br><span class="swatch-block" style="background: {{ color}}"></span></li>
+	{{else}}
+	<li>No colors</li>
+	{{/each}}
+</ul>
+
+</template>

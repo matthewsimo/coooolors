@@ -5,7 +5,18 @@
 
 	{{> loginButtons }}
 
-	{{> colorSelectBox }} 
+	<br>
+
+	<button data-action="create-board">Create a new Color Board</button>
+
+	
+	<ul>
+	{{#each recentPublicBoards }}
+	<li><a href="board/{{_id}}">{{title}}</a> - {{ created }} by {{ creator }}</li>
+	{{else}}
+	<li>No Boards</li>
+	{{/each}}
+	</ul>
 
 </template>
 
