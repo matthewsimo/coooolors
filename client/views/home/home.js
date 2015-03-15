@@ -39,6 +39,11 @@ Template.home.events({
 		console.log("e");
 		console.log(e);
 
+		Meteor.call('createBoard', {
+			title: "Example Board - " + ( Boards.find().fetch().length + 1 ),
+			slug: "example-board-" + ( Boards.find().fetch().length + 1 ),
+			visibility: true
+		});
 		
 	}
 });

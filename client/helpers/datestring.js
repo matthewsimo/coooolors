@@ -1,3 +1,6 @@
 Template.registerHelper( 'msDateFromNow', function( options ) {
-	return moment(options.date).format("dddd, MMMM Do YYYY, h:mm:ss a");
+	console.log("options: ");
+	console.log(options);
+	return moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+//	return moment(options.hash.date.parse()).format("dddd, MMMM Do YYYY, h:mm:ss a");
 });
