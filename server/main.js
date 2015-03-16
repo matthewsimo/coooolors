@@ -32,7 +32,7 @@ Meteor.methods({
 	setUserCodePref: function( user, pref ) {
 
 		// Just use rgb for the time being
-		var validPrefs = ['rgb'];//, 'rgba', 'hsl', 'hsla', 'hex'];
+		var validPrefs = ['rgb', 'hsl', 'hex'];
 		if( _.contains( validPrefs, pref ) ) {
 			return user.codePref = pref;
 		} else {
@@ -46,12 +46,10 @@ Meteor.methods({
 			throw new Meteor.Error('must-be-logged-in', "Log in first to create boards.");
 		}
 
-		boardObj.creator = Meteor.userId();
-		boardObj.created = new Date();
-		boardObj.editors = [];
-
-
 		// TODO: Validate boardObj
+		boardObj.creator = Meteor.userId();
+		boardObj.created = boardObj.updated = new Date();
+		boardObj.editors = [Meteor.userId()];
 
 		return Boards.insert( boardObj );
 		
@@ -62,19 +60,11 @@ Meteor.methods({
 			throw new Meteor.Error('must-be-logged-in', "Log in first to create boards.");
 		}
 
-		console.log("colorObj");
-		console.log(colorObj);
-		console.log("date");
-		var date = new Date();
-
-		console.log(date);
-
-		colorObj.creator = Meteor.userId();
-		colorObj.created = colorObj.updated = date;
-
 		// TODO: Validate User as editor/creator of board
+		colorObj.creator = Meteor.userId();
 
 		// TODO: Validate colorObj
+		colorObj.created = colorObj.updated = new Date();
 
 		return Colors.insert( colorObj );
 

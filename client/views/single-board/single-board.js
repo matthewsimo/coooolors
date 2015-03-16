@@ -3,13 +3,7 @@ Template.singleBoard.events({
 	'click [data-action]': function( e, t ) {
 		e.preventDefault();
 
-		console.log("in click event");
-		console.log("e");
-		console.log(e);
-		console.log("t");
-		console.log(t);
-		console.log('hsl(' + getRandomInt(0, 360) + ',' + getRandomInt(0, 100) + '%,' + getRandomInt(0, 100) + '%)');
-
+		// Create random color
 		Meteor.call('createColor', {
 			board: t.data.board._id,
 			color: 'hsl(' + getRandomInt(0, 360) + ',' + getRandomInt(0, 100) + '%,' + getRandomInt(0, 100) + '%)',
@@ -20,12 +14,9 @@ Template.singleBoard.events({
 
 Template.singleBoard.helpers({
 	colors: function() {
-		console.log(Colors.find().fetch());
 		return Colors.find();
 	},
 	formattedColor: function() {
-		console.log("this");
-		console.log(this);
 		var formattedColor = tinycolor(this.color);
 
 		switch ( Meteor.user().colorCodePref ) {
@@ -46,8 +37,7 @@ Template.singleBoard.helpers({
 
 	},
 	formattedDate: function() {
-		var date = this.created;
-		return moment(date).fromNow();
+		return moment(this.created).fromNow();
 	},
 
 });

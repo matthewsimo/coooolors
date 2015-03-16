@@ -1,18 +1,24 @@
 <template name="singleBoard">
 
 
-<h2>Single Board view</h2>
+<h2>{{ board.title }}</h2>
 
-board: {{ board._id }} 
 
 {{> colorSelectBox }}
 
 <button data-action="addColor">Add a color</button>
 
-<ul>
+<ul class="swatch-list">
 	{{#each colors}}
-	<li class="color color-{{_id}}">{{color}} - {{ formattedDate }} by {{creator}} for {{ board }}<br><span class="swatch-block" style="background: {{ color }}"></span></li>
-	<span>{{formattedColor}}</span>
+	<li class="swatch-item swatch-{{_id}}">
+		<span class="swatch-block" style="background: {{ color }}"></span>
+		<span class="swatch-info">
+			{{ formattedColor }}<br> 
+			Created: {{ formattedDate }}<br> 
+			By: {{creator}}<br>
+			{{ ../board.title }}<br>
+		</span>
+	</li>
 	{{else}}
 	<li>No colors</li>
 	{{/each}}
