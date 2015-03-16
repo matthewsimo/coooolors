@@ -1,4 +1,15 @@
 
+
+@mixin transition( $transition... ) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-o-transition: $transition;
+	-ms-transition: $transition;
+	transition: $transition;
+}
+
+
+
 .color-select-box {
 	width: 300px;
 	height: 300px;
@@ -47,21 +58,32 @@
 }
 
 .swatch-info {
-	background: #FFF;
-	visibility: hidden;
+	background: rgba(255,255,255,.92);
 	padding: 8px;
 	position: absolute;
 	bottom: 50%;
 	left: 50%;
-	min-width: 10em;
-	min-height: 5em;
 	z-index: 3;
 	border-radius: 3px;
 	box-shadow: 0 0 4px 0 #434343;
 
-	.swatch-item:hover &,
-	.swatch-item:first-child & {
+	opacity: 0;
+	visibility: hidden;
+	min-width: 10.1em;
+	min-height: 5.1em;
+	transform: scale(1.1);
+
+	@include transition( 
+		all 			 0.1s ease-in-out 0.1s,
+		visibility 0.1s ease-in-out 0.1s, 
+		opacity		   0s ease-in-out
+	);
+
+	.swatch-item:hover & {
+		opacity: 1;
 		visibility: visible;
+		min-width: 10em;
+		min-height: 5em;
+		transform: scale(1);
 	}
 }
-
