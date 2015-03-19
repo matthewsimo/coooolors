@@ -1,5 +1,6 @@
 <template name="singleBoard">
 
+<div class="main-block">
 
 <h2>{{ board.title }}</h2>
 
@@ -8,9 +9,11 @@
 
 <button data-action="addColor">Add a color</button>
 
+</div>
+
 <ul class="swatch-list">
 	{{#each colors}}
-	<li class="swatch-item swatch-{{_id}}">
+	<li class="swatch-item swatch-{{_id}} {{ showColor }}">
 		<span class="swatch-block" style="background: {{ color }}"></span>
 		<span class="swatch-info">
 			{{ formattedColor }}<br> 

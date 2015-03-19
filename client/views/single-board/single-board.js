@@ -16,6 +16,16 @@ Template.singleBoard.helpers({
 	colors: function() {
 		return Colors.find();
 	},
+	showColorInfo: function() {
+		return false;
+	},
+	showColor: function() {
+		if( this.showColorInfo ) {
+			return 'show-color-info';
+		} else {
+			return '';
+		}
+	},
 	formattedColor: function() {
 		var formattedColor = tinycolor(this.color);
 

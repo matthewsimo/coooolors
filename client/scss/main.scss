@@ -1,3 +1,6 @@
+body {
+	margin: 0;
+}
 
 
 @mixin transition( $transition... ) {
@@ -7,6 +10,57 @@
 	-ms-transition: $transition;
 	transition: $transition;
 }
+
+
+.main-block {
+	width: 75%;
+	min-height: 100%;
+	position: relative;
+}
+
+
+.swatch-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	clear: both;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 25%;
+	overflow-y: scroll;
+	overflow-x: visible;
+}
+
+.swatch-item {
+	display: block;
+	position: relative;
+	width: 100%;
+	min-height: 100px;
+
+	&:hover,
+	&.show-color-info {
+		min-height: 200px;
+	}
+}
+
+.swatch-block {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+}
+
+.swatch-info {
+	display: block;
+	color: white;
+	z-index: 2;
+}
+
 
 
 
@@ -31,59 +85,5 @@
 		right: -10px;
 		bottom: -10px;
 		z-index: -1;
-	}
-}
-
-.swatch-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	clear: both;
-}
-
-.swatch-item {
-	display: inline-block;
-	margin: 5px;
-	position: relative;
-}
-
-.swatch-block {
-	display: inline-block;
-	width: 5em;
-	height: 5em;
-	border: 5px solid #fff;
-	box-shadow: 0 0 0 1px #434343;
-	border-radius: 3px;
-
-}
-
-.swatch-info {
-	background: rgba(255,255,255,.92);
-	padding: 8px;
-	position: absolute;
-	bottom: 50%;
-	left: 50%;
-	z-index: 3;
-	border-radius: 3px;
-	box-shadow: 0 0 4px 0 #434343;
-
-	opacity: 0;
-	visibility: hidden;
-	min-width: 10.1em;
-	min-height: 5.1em;
-	transform: scale(1.1);
-
-	@include transition( 
-		all 			 0.1s ease-in-out 0.1s,
-		visibility 0.1s ease-in-out 0.1s, 
-		opacity		   0s ease-in-out
-	);
-
-	.swatch-item:hover & {
-		opacity: 1;
-		visibility: visible;
-		min-width: 10em;
-		min-height: 5em;
-		transform: scale(1);
 	}
 }

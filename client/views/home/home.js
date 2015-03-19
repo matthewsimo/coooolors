@@ -3,8 +3,8 @@
 Meteor.subscribe('recentBoards');
 
 
-Template.home.rendered = function() {
-
+//Template.home.rendered = function() {
+//
 //	var listener = new Keypress.Listener();
 //
 //	listener.simple_combo("c", function() {
@@ -27,8 +27,8 @@ Template.home.rendered = function() {
 //	listener.simple_combo("down", function() {
 //		console.log("Change saturation down");
 //	});
-
-};
+//
+//};
 
 
 Template.home.events({
