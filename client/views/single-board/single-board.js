@@ -46,9 +46,22 @@ Template.singleBoard.helpers({
 		return formattedColor;
 
 	},
+	isLight: function() {
+		return tinycolor(this.color).isLight() || false;
+	},
+	isDark: function() {
+		return tinycolor(this.color).isDark() || false;
+	},
 	formattedDate: function() {
 		return moment(this.created).fromNow();
 	},
+	textColorClass: function() {
+		if ( tinycolor(this.color).isDark() ) {
+			return 'is-dark';
+		}
+
+		return 'is-light';
+	}
 
 });
 

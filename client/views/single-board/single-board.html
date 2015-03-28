@@ -15,11 +15,13 @@
 	{{#each colors}}
 	<li class="swatch-item swatch-{{_id}} {{ showColor }}">
 		<span class="swatch-block" style="background: {{ color }}"></span>
-		<span class="swatch-info">
+		<span class="swatch-info {{ textColorClass }}">
 			{{ formattedColor }}<br> 
 			Created: {{ formattedDate }}<br> 
 			By: {{creator}}<br>
 			{{ ../board.title }}<br>
+			isLight: {{ isLight }}<br>
+			isDark: {{ isDark }}<br>
 		</span>
 	</li>
 	{{else}}
